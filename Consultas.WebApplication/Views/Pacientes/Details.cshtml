@@ -1,0 +1,23 @@
+﻿@model Consultas.WebApplication.Models.PacienteViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes da Paciente</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => Model.IdPaciente)</dt>
+        <dd>@Html.DisplayFor(model => Model.IdPaciente)</dd>
+        <dt>@Html.DisplayNameFor(model => Model.Nome)</dt>
+        <dd>@Html.DisplayFor(model => Model.Nome)</dd>
+        <dt>@Html.DisplayNameFor(model => model.DtNascimento)</dt>
+        <dd>@Html.DisplayFor(model => model.DtNascimento, "{0:dd/MM/yyyy}")</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { IdPaciente = Model.IdPaciente }) |
+    @Html.ActionLink("Retornar", "Index")
+</p>

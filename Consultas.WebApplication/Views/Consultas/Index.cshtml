@@ -1,0 +1,36 @@
+﻿@model List<Consultas.WebApplication.Models.ConsultaViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Relação de Consultas</h2>
+
+<p>
+    @Html.ActionLink("Criar Nova Consulta", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().IdConsulta)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Paciente.Nome)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Medico.Nome)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().DtConsulta)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.IdConsulta)</td>
+            <td>@Html.DisplayFor(modelItem => item.Paciente.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.Medico.Nome)</td>
+            <td>@Html.DisplayFor(modelItem => item.DtConsulta, "{0:yyyy-MM-dd}")</td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdConsulta }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.IdConsulta }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.IdConsulta }, new { onclick = "return confirm('Deseja realmente deletar esta Consulta ?');" })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })

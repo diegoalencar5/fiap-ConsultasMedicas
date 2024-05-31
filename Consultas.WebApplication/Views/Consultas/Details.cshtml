@@ -1,0 +1,23 @@
+﻿@model Consultas.WebApplication.Models.ConsultaViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes da Consulta</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => Model.IdConsulta)</dt>
+        <dd>@Html.DisplayFor(model => Model.IdConsulta)</dd>
+        <dt>@Html.DisplayNameFor(model => model.DtConsulta)</dt>
+        <dd>@Html.DisplayFor(model => model.DtConsulta, "{0:dd/MM/yyyy}")</dd>
+        <dt>@Html.DisplayNameFor(model => model.Observacoes)</dt>
+        <dd>@Html.Raw(Model.Observacoes.Replace(Environment.NewLine, "<br/>"))</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { IdConsulta = Model.IdConsulta }) |
+    @Html.ActionLink("Retornar", "Index")
+</p>
